@@ -1,0 +1,28 @@
+.home{
+    height: 200px;
+    margin: 25px;
+    background-color: black;
+    color: bisque;
+    text-align: center;
+}
+.welcome{
+    height: 200px;
+    margin: 25px;
+    background-color: rgb(255, 0, 179);
+    color: rgb(163, 99, 22);
+    text-align: center;
+}
+.movies{
+    height: 200px;
+    margin: 25px;
+    background-color: rgb(24, 200, 0);
+    color: rgb(204, 255, 0);
+    text-align: center;
+}
+.error{
+    height: 200px;
+    margin: 25px;
+    background-color: rgb(255, 0, 0);
+    color: rgb(43, 0, 255);
+    text-align: center;
+}

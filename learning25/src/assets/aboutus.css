@@ -1,0 +1,15 @@
+.aboutus{
+    display: flex;
+    justify-content:space-between;
+    /* align-items: center; */
+    height: 100vh;
+    background-color: #f1f1f1;
+}
+.img{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px #000;      
+}
