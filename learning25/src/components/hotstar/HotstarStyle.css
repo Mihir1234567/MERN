@@ -26,3 +26,10 @@
     color: rgb(43, 0, 255);
     text-align: center;
 }
+.play{
+    height: 200px;
+    margin: 25px;
+    background-color: rgb(188, 71, 108);
+    color: rgb(38, 166, 202);
+    text-align: center;
+}

@@ -20,6 +20,7 @@ import { HotstarHome } from "./components/hotstar/HotstarHome";
 import { HotstarMovies } from "./components/hotstar/HotstarMovies";
 import { HotstarWelcome } from "./components/hotstar/HotstarWelcome";
 import { HotstarError } from "./components/hotstar/Error";
+import { Play } from "./components/hotstar/Play";
 function App() {
   return (
     <div>
@@ -28,6 +29,7 @@ function App() {
         <Route path="/home" element={<HotstarHome></HotstarHome>}></Route>
         <Route path="/movies" element={<HotstarMovies></HotstarMovies>}></Route>
         <Route path="/*" element={<HotstarError></HotstarError>}></Route>
+        <Route path="/play/:id" element={<Play></Play>}></Route>
         <Route path="/" element={<HotstarWelcome></HotstarWelcome>}></Route>
       </Routes>
     </div>
