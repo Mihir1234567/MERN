@@ -1,0 +1,46 @@
+import React from "react";
+import { useForm } from "react-hook-form";
+import "../forms/forms.css";
+export const FormDemo3 = () => {
+  const { register, handleSubmit } = useForm();
+  const submitHandler = (data) => {
+    console.log(data);
+  };
+  return (
+    <div class="form">
+      <h1>FormDemo3</h1>
+      <form action="" onSubmit={handleSubmit(submitHandler)}>
+        <div>
+          <label htmlFor="">Name:- </label>
+          <input type="text" placeholder="Name" {...register("name")} />
+        </div>
+        <div>
+          <label htmlFor="">Transport:- </label>
+          Bus: <input type="radio" value="bus" {...register("transport")} />
+          Train: <input type="radio" value="train" {...register("transport")} />
+          Flight:{" "}
+          <input type="radio" value="flight" {...register("transport")} />
+        </div>
+        <div>
+          <label htmlFor="">Select your city:-</label>
+          <select {...register("city")}>
+            <option value="ahmedabad">Ahmedabad</option>
+            <option value="mumbai">Mumbai</option>
+            <option value="pune">Pune</option>
+          </select>
+        </div>
+        <div>
+          <label htmlFor="">choice</label>
+          20km <input type="checkbox" value="20km" {...register("choice")} />
+          will return{" "}
+          <input type="checkbox" value="will return" {...register("choice")} />
+          swimming{" "}
+          <input type="checkbox" value="swimming" {...register("choice")} />
+        </div>
+        <div>
+          <input type="submit" />
+        </div>
+      </form>
+    </div>
+  );
+};

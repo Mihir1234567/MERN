@@ -21,6 +21,10 @@ import { HotstarMovies } from "./components/hotstar/HotstarMovies";
 import { HotstarWelcome } from "./components/hotstar/HotstarWelcome";
 import { HotstarError } from "./components/hotstar/Error";
 import { Play } from "./components/hotstar/Play";
+import { FormsDemo1 } from "./components/forms/FormsDemo1";
+import { FormDemo2 } from "./components/forms/FormDemo2";
+import { FormDemo3 } from "./components/forms/FormDemo3";
+import { FormDemo4 } from "./components/forms/FormDemo4";
 function App() {
   return (
     <div>
@@ -31,6 +35,10 @@ function App() {
         <Route path="/*" element={<HotstarError></HotstarError>}></Route>
         <Route path="/play/:id" element={<Play></Play>}></Route>
         <Route path="/" element={<HotstarWelcome></HotstarWelcome>}></Route>
+        <Route path="/FormDemo1" element={<FormsDemo1></FormsDemo1>}></Route>
+        <Route path="/FormDemo2" element={<FormDemo2></FormDemo2>}></Route>
+        <Route path="/FormDemo3" element={<FormDemo3></FormDemo3>}></Route>
+        <Route path="/FormDemo4" element={<FormDemo4></FormDemo4>}></Route>
       </Routes>
     </div>
   );
