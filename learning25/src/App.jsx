@@ -25,6 +25,10 @@ import { FormsDemo1 } from "./components/forms/FormsDemo1";
 import { FormDemo2 } from "./components/forms/FormDemo2";
 import { FormDemo3 } from "./components/forms/FormDemo3";
 import { FormDemo4 } from "./components/forms/FormDemo4";
+import { FormDemo1hw } from "./components/forms/HomeWork/FormDemo1hw";
+import { FormDemo2hw } from "./components/forms/HomeWork/FormDemo2hw";
+import { FormDemo3hw } from "./components/forms/HomeWork/FormDemo3hw";
+import { FormDemo4hw } from "./components/forms/HomeWork/FormDemo4hw";
 function App() {
   return (
     <div>
@@ -39,6 +43,22 @@ function App() {
         <Route path="/FormDemo2" element={<FormDemo2></FormDemo2>}></Route>
         <Route path="/FormDemo3" element={<FormDemo3></FormDemo3>}></Route>
         <Route path="/FormDemo4" element={<FormDemo4></FormDemo4>}></Route>
+        <Route
+          path="/FormDemo1hw"
+          element={<FormDemo1hw></FormDemo1hw>}
+        ></Route>
+        <Route
+          path="/FormDemo2hw"
+          element={<FormDemo2hw></FormDemo2hw>}
+        ></Route>
+        <Route
+          path="/FormDemo3hw"
+          element={<FormDemo3hw></FormDemo3hw>}
+        ></Route>
+        <Route
+          path="/FormDemo4hw"
+          element={<FormDemo4hw></FormDemo4hw>}
+        ></Route>
       </Routes>
     </div>
   );
