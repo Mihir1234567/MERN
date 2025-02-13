@@ -4,3 +4,6 @@
 .message{
     width: 250px;
 }
+.errormsg{
+    color: red;
+}
