@@ -4,9 +4,21 @@ import { useForm } from "react-hook-form";
 import { data } from "react-router-dom";
 
 export const FormDemo4 = () => {
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const submitHandler = (data) => {
     console.log(data);
+  };
+  const validator = {
+    nameValidator: {
+      required: {
+        value: true,
+        message: "*Please Enter This Field",
+      },
+    },
   };
   return (
     <div class="form">
@@ -14,7 +26,12 @@ export const FormDemo4 = () => {
       <form action="" onSubmit={handleSubmit(submitHandler)}>
         <div>
           <label htmlFor="">Food Name</label>
-          <input type="text" placeholder="Foodname" {...register("name")} />
+          <input
+            type="text"
+            placeholder="Foodname"
+            {...register("name", validator.nameValidator)}
+          />
+          <span class="errormsg">{errors.name?.message}</span>
         </div>
         <div>
           <label htmlFor="">Food Preferance</label> <br />

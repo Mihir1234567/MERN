@@ -29,6 +29,8 @@ import { FormDemo1hw } from "./components/forms/HomeWork/FormDemo1hw";
 import { FormDemo2hw } from "./components/forms/HomeWork/FormDemo2hw";
 import { FormDemo3hw } from "./components/forms/HomeWork/FormDemo3hw";
 import { FormDemo4hw } from "./components/forms/HomeWork/FormDemo4hw";
+import { FormDemo5 } from "./components/forms/FormDemo5";
+import { FormDemo6 } from "./components/forms/FormDemo6";
 function App() {
   return (
     <div>
@@ -43,6 +45,8 @@ function App() {
         <Route path="/FormDemo2" element={<FormDemo2></FormDemo2>}></Route>
         <Route path="/FormDemo3" element={<FormDemo3></FormDemo3>}></Route>
         <Route path="/FormDemo4" element={<FormDemo4></FormDemo4>}></Route>
+        <Route path="/FormDemo5" element={<FormDemo5></FormDemo5>}></Route>
+        <Route path="/FormDemo6" element={<FormDemo6></FormDemo6>}></Route>
         <Route
           path="/FormDemo1hw"
           element={<FormDemo1hw></FormDemo1hw>}

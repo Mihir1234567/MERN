@@ -2,9 +2,21 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import "../forms/forms.css";
 export const FormDemo3 = () => {
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const submitHandler = (data) => {
     console.log(data);
+  };
+  const validator = {
+    nameValidator: {
+      required: {
+        value: true,
+        message: "*Please enter this field",
+      },
+    },
   };
   return (
     <div class="form">
@@ -12,7 +24,12 @@ export const FormDemo3 = () => {
       <form action="" onSubmit={handleSubmit(submitHandler)}>
         <div>
           <label htmlFor="">Name:- </label>
-          <input type="text" placeholder="Name" {...register("name")} />
+          <input
+            type="text"
+            placeholder="Name"
+            {...register("name", validator.nameValidator)}
+          />
+          <span class="errormsg">{errors.name?.message}</span>{" "}
         </div>
         <div>
           <label htmlFor="">Transport:- </label>
