@@ -38,7 +38,7 @@ export const FormDemo5 = () => {
             placeholder="Enter name"
             {...register("name", validator.nameValidator)}
           />
-          {errors.name?.message}
+          <span class="errormsg"> {errors.name?.message}</span>
         </div>
 
         <div>
@@ -48,7 +48,7 @@ export const FormDemo5 = () => {
             placeholder="Enter Referal Code"
             {...register("ref", validator.refValidator)}
           />
-          {errors.ref?.message}
+          <span class="errormsg"> {errors.ref?.message}</span>
         </div>
         <div>
           <input type="submit" />

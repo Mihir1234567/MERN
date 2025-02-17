@@ -3,7 +3,7 @@ import "./Forms.css";
 import { useForm } from "react-hook-form";
 
 export const FormDemo6 = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit ,formState:{errors}} = useForm();
   const [output, setOutput] = useState();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const submitHandler = (data) => {
@@ -33,8 +33,8 @@ export const FormDemo6 = () => {
       </form>
       {isSubmitted == true ? (
         <div style={{ color: output?.color }}>
-          <h1>{output?.name}</h1>
-          <h2>{output?.age}</h2>
+          <h1>NAME:- {output?.name}</h1>
+          <h2>Age:- {output?.age}</h2>
         </div>
       ) : (
         ""

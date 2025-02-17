@@ -1,0 +1,14 @@
+/* Home.css */
+.home-container {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  
