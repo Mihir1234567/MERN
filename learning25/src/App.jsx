@@ -2,7 +2,7 @@ import "../src/assets/app.css";
 import { Header } from "./components/Header";
 import { Content } from "./components/Content";
 import { Footer } from "./components/Footer";
-import { Navbar } from "./components/Navbar";
+// import { Navbar, Navbar1 } from "./components/Navbar";
 import { Aboutus } from "./components/Aboutus";
 import { ArrayDemo1 } from "./components/ArrayDemo1";
 import { ArrayDemo2 } from "./components/ArrayDemo2";
@@ -31,10 +31,12 @@ import { FormDemo3hw } from "./components/forms/HomeWork/FormDemo3hw";
 import { FormDemo4hw } from "./components/forms/HomeWork/FormDemo4hw";
 import { FormDemo5 } from "./components/forms/FormDemo5";
 import { FormDemo6 } from "./components/forms/FormDemo6";
+import { ApiDemo1 } from "./components/apis/ApiDemo1";
+import { Navbar1 } from "./components/Navbar1";
 function App() {
   return (
     <div>
-      <Navbar></Navbar>
+      <Navbar1></Navbar1>
       <Routes>
         <Route path="/home" element={<HotstarHome></HotstarHome>}></Route>
         <Route path="/movies" element={<HotstarMovies></HotstarMovies>}></Route>
@@ -63,6 +65,7 @@ function App() {
           path="/FormDemo4hw"
           element={<FormDemo4hw></FormDemo4hw>}
         ></Route>
+        <Route path="/apidemo1" element={<ApiDemo1></ApiDemo1>}></Route>
       </Routes>
     </div>
   );
