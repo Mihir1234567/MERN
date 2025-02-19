@@ -2,7 +2,7 @@ import "../src/assets/app.css";
 import { Header } from "./components/Header";
 import { Content } from "./components/Content";
 import { Footer } from "./components/Footer";
-// import { Navbar, Navbar1 } from "./components/Navbar";
+import { Navbar } from "./components/Navbar";
 import { Aboutus } from "./components/Aboutus";
 import { ArrayDemo1 } from "./components/ArrayDemo1";
 import { ArrayDemo2 } from "./components/ArrayDemo2";
@@ -32,11 +32,14 @@ import { FormDemo4hw } from "./components/forms/HomeWork/FormDemo4hw";
 import { FormDemo5 } from "./components/forms/FormDemo5";
 import { FormDemo6 } from "./components/forms/FormDemo6";
 import { ApiDemo1 } from "./components/apis/ApiDemo1";
-import { Navbar1 } from "./components/Navbar1";
+// import { Navbar1 } from "./components/Navbar1";
+import { SearchMovies } from "./components/apis/omdb/SearchMovies";
+import { MovieDetails } from "./components/apis/omdb/MovieDetails";
 function App() {
   return (
     <div>
-      <Navbar1></Navbar1>
+      {/* <Navbar1></Navbar1> */}
+      <Navbar></Navbar>
       <Routes>
         <Route path="/home" element={<HotstarHome></HotstarHome>}></Route>
         <Route path="/movies" element={<HotstarMovies></HotstarMovies>}></Route>
@@ -66,6 +69,14 @@ function App() {
           element={<FormDemo4hw></FormDemo4hw>}
         ></Route>
         <Route path="/apidemo1" element={<ApiDemo1></ApiDemo1>}></Route>
+        <Route
+          path="/searchmovies"
+          element={<SearchMovies></SearchMovies>}
+        ></Route>
+        <Route
+          path="/moviedetails/:id"
+          element={<MovieDetails></MovieDetails>}
+        ></Route>
       </Routes>
     </div>
   );
