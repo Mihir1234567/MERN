@@ -31,55 +31,11 @@ export const Navbar = () => {
             </Link>
           </li>
           <li class="nav-item">
-            <Link class="nav-link" to="/FormDemo1">
-              FormDemo1
+            <Link class="nav-link" to="/formdemos">
+              Form Demos
             </Link>
           </li>
-          <li class="nav-item">
-            <Link class="nav-link" to="/FormDemo2">
-              FormDemo2
-            </Link>
-          </li>
-          <li class="nav-item">
-            <Link class="nav-link" to="/FormDemo3">
-              FormDemo3
-            </Link>
-          </li>
-          <li class="nav-item">
-            <Link class="nav-link" to="/FormDemo4">
-              FormDemo4
-            </Link>
-          </li>
-          <li class="nav-item">
-            <Link class="nav-link" to="/FormDemo5">
-              FormDemo5
-            </Link>
-          </li>
-          <li class="nav-item">
-            <Link class="nav-link" to="/FormDemo6">
-              FormDemo6
-            </Link>
-          </li>
-          <li class="nav-item">
-            <Link class="nav-link" to="/FormDemo1hw">
-              FormDemo1hw
-            </Link>
-          </li>
-          <li class="nav-item">
-            <Link class="nav-link" to="/FormDemo2hw">
-              FormDemo2hw
-            </Link>
-          </li>
-          <li class="nav-item">
-            <Link class="nav-link" to="/FormDemo3hw">
-              FormDemo3hw
-            </Link>
-          </li>
-          <li class="nav-item">
-            <Link class="nav-link" to="/FormDemo4hw">
-              FormDemo4hw
-            </Link>
-          </li>
+
           <li class="nav-item">
             <Link class="nav-link" to="/apidemo1">
               ApiDemo1
@@ -88,6 +44,17 @@ export const Navbar = () => {
           <li class="nav-item">
             <Link class="nav-link" to="/searchmovies">
               SearchMovie
+            </Link>
+          </li>
+
+          <li class="nav-item">
+            <Link class="nav-link" to="/apipostdemo1">
+              ApiPostDemo1
+            </Link>
+          </li>
+          <li class="nav-item">
+            <Link class="nav-link" to="/apipostdemo2">
+              ApiPostDemo2
             </Link>
           </li>
         </ul>

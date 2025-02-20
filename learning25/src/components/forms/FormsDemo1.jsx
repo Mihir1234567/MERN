@@ -1,6 +1,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import "../forms/Forms.css";
+import { Link } from "react-router-dom";
+
 export const FormsDemo1 = () => {
   const {
     register,
@@ -60,6 +62,18 @@ export const FormsDemo1 = () => {
         </div>
         <div>
           <input type="submit" />
+          <br />
+        </div>
+        <div>
+          <button class="btn ">
+            <Link to="/formdemos">Previous Form Demo</Link>
+          </button>
+          <button class="btn ">
+            <Link to="/formdemos">All Forms Demo</Link>
+          </button>
+          <button class="btn ">
+            <Link to="/formdemo2">Next Form Demo</Link>
+          </button>
         </div>
       </form>
     </div>

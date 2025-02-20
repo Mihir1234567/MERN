@@ -56,6 +56,18 @@ export const FormDemo3 = () => {
         </div>
         <div>
           <input type="submit" />
+          <br />
+        </div>
+        <div>
+          <button class="btn ">
+            <Link to="/formdemo1">Previous Form Demo</Link>
+          </button>
+          <button class="btn ">
+            <Link to="/formdemos">All Forms Demo</Link>
+          </button>
+          <button class="btn ">
+            <Link to="/formdemo3">Next Form Demo</Link>
+          </button>
         </div>
       </form>
     </div>

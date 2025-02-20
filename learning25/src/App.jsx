@@ -35,6 +35,9 @@ import { ApiDemo1 } from "./components/apis/ApiDemo1";
 // import { Navbar1 } from "./components/Navbar1";
 import { SearchMovies } from "./components/apis/omdb/SearchMovies";
 import { MovieDetails } from "./components/apis/omdb/MovieDetails";
+import { ApiPostDemo1 } from "./components/apis/ApiPostDemo1";
+import { ApiPostDemo2 } from "./components/apis/ApiPostDemo2";
+import { FormDemos } from "./components/Pages/FormDemos";
 function App() {
   return (
     <div>
@@ -77,6 +80,15 @@ function App() {
           path="/moviedetails/:id"
           element={<MovieDetails></MovieDetails>}
         ></Route>
+        <Route
+          path="/apipostdemo1"
+          element={<ApiPostDemo1></ApiPostDemo1>}
+        ></Route>
+        <Route
+          path="/apipostdemo2"
+          element={<ApiPostDemo2></ApiPostDemo2>}
+        ></Route>
+        <Route path="/formdemos" element={<FormDemos></FormDemos>}></Route>
       </Routes>
     </div>
   );

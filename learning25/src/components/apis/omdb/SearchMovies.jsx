@@ -39,7 +39,7 @@ export const SearchMovies = () => {
       </div>
       <div className="container mt-4">
         <div className="row">
-          {movieData.map((movie) => (
+          {movieData?.map((movie) => (
             <div className="col-md-3 mb-4" key={movie.imdbID}>
               <div className="card bg-dark text-white shadow-lg border-warning h-100">
                 <Link

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../Api.css";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
@@ -15,6 +15,9 @@ export const MovieDetails = () => {
     setmovie(res.data);
     setRatings(res.data.Ratings);
   };
+  useEffect(() => {
+    getDetails();
+  }, []);
   return (
     <div
       className="container mt-5"
@@ -26,12 +29,14 @@ export const MovieDetails = () => {
       }}
     >
       <h1 className="text-warning text-center fw-bold">🎥 Movie Details</h1>
-      <button
-        className="btn btn-warning mb-3 d-block mx-auto fw-bold"
-        onClick={getDetails}
-      >
-        Get Movie Details{" "}
-      </button>
+      {/* {!movie && (
+        <button
+          className="btn btn-warning mb-3 d-block mx-auto fw-bold"
+          onClick={getDetails}
+        >
+          Get Movie Details{" "}
+        </button>
+      )} */}
       {movie && (
         <div className="card bg-dark text-light shadow-lg p-4 border-warning">
           <div className="row">
@@ -132,11 +137,13 @@ export const MovieDetails = () => {
         </div>
       )}
       <div className="text-center mt-3">
-        <Link to="/searchmovies" className="btn btn-outline-warning fw-bold px-4 py-2">
+        <Link
+          to="/searchmovies"
+          className="btn btn-outline-warning fw-bold px-4 py-2"
+        >
           🔙 Go to Previous Page
         </Link>
       </div>
-
     </div>
   );
 };

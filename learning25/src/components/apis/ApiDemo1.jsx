@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./Api.css";
 
@@ -13,12 +13,15 @@ export const ApiDemo1 = () => {
     setmessage(res.data.message);
     setusers(res.data.data);
   };
+  useEffect(() => {
+    getUserData();
+  }, []);
   return (
     <div class="main-div ">
       <h1>ApiDemo1</h1>
-      <button class="btn btn-primary" onClick={getUserData}>
+      {/* <button class="btn btn-primary" onClick={getUserData}>
         Get
-      </button>
+      </button> */}
       <h2>{message}</h2>
       <table class="table table-striped">
         <thead>
