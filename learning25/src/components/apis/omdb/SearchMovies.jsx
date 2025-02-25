@@ -16,7 +16,7 @@ export const SearchMovies = () => {
   };
   return (
     <div
-      className="container mt-5"
+      className="main-div container mt-5"
       style={{
         backgroundColor: "#141414",
         minHeight: "100vh",
