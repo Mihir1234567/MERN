@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Divided Table by Entity</title>
+    <style>
+      /* Base table styles */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+      }
+
+      /* Table header styling */
+      thead {
+        background-color: #007bff;
+        color: #fff;
+      }
+      thead th {
+        padding: 10px 15px;
+        border: 1px solid #ddd;
+      }
+
+      /* Section header row styling */
+      .entity-section td {
+        background-color: #f0f0f0;
+        font-weight: bold;
+        padding: 10px 15px;
+        border: 1px solid #ddd;
+      }
+
+      /* Body cell styling */
+      tbody td {
+        padding: 10px 15px;
+        border: 1px solid #ddd;
+      }
+
+      /* Zebra striping for rows (excluding section headers) */
+      tbody tr:not(.entity-section):nth-child(even) {
+        background-color: #f9f9f9;
+      }
+
+      /* Hover effect for non-header rows */
+      tbody tr:not(.entity-section):hover {
+        background-color: #f1f1f1;
+      }
+    </style>
+    <script src="./table2excel.js"></script>
+  </head>
+  <body>
+    <button id="downloadExcel">Export</button>
+    <div class="ds-markdown ds-markdown--block" style="--ds-md-zoom: 1.143">
+      
+      <h4><strong>Table: User</strong></h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Field</th>
+            <th>Type</th>
+            <th>Constraints</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>UserId</td>
+            <td>Integer</td>
+            <td>PK</td>
+            <td>Unique identifier for each user.</td>
+          </tr>
+          <tr>
+            <td>FirstName</td>
+            <td>Varchar(50)</td>
+            <td>Not Null</td>
+            <td>User's first name.</td>
+          </tr>
+          <tr>
+            <td>LastName</td>
+            <td>Varchar(50)</td>
+            <td>Not Null</td>
+            <td>User's last name.</td>
+          </tr>
+          <tr>
+            <td>Email</td>
+            <td>Varchar(100)</td>
+            <td>Not Null, Unique</td>
+            <td>User's email address.</td>
+          </tr>
+          <tr>
+            <td>Password</td>
+            <td>Varchar(255)</td>
+            <td>Not Null</td>
+            <td>Encrypted password.</td>
+          </tr>
+          <tr>
+            <td>Role</td>
+            <td>Enum</td>
+            <td>Not Null</td>
+            <td>
+              <code>Admin</code>, <code>Advertiser</code>, <code>Viewer</code>.
+            </td>
+          </tr>
+          <tr>
+            <td>CreatedAt</td>
+            <td>Date</td>
+            <td>Not Null</td>
+            <td>Account creation date.</td>
+          </tr>
+          <tr>
+            <td>Status</td>
+            <td>Boolean</td>
+            <td>Not Null</td>
+            <td><code>Active</code> or <code>Disabled</code>.</td>
+          </tr>
+        </tbody>
+      </table>
+      <hr />
+      <h4><strong>Table: Campaign</strong></h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Field</th>
+            <th>Type</th>
+            <th>Constraints</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>CampaignId</td>
+            <td>Integer</td>
+            <td>PK</td>
+            <td>Unique identifier for campaigns.</td>
+          </tr>
+          <tr>
+            <td>AdvertiserId</td>
+            <td>Integer</td>
+            <td>FK (User)</td>
+            <td>Links to the Advertiser's UserId.</td>
+          </tr>
+          <tr>
+            <td>Title</td>
+            <td>Varchar(100)</td>
+            <td>Not Null</td>
+            <td>Campaign name.</td>
+          </tr>
+          <tr>
+            <td>StartDate</td>
+            <td>Date</td>
+            <td>Not Null</td>
+            <td>Campaign start date.</td>
+          </tr>
+          <tr>
+            <td>EndDate</td>
+            <td>Date</td>
+            <td>Not Null</td>
+            <td>Campaign end date.</td>
+          </tr>
+          <tr>
+            <td>Budget</td>
+            <td>Decimal</td>
+            <td>Not Null</td>
+            <td>Total allocated budget.</td>
+          </tr>
+          <tr>
+            <td>Status</td>
+            <td>Enum</td>
+            <td>Not Null</td>
+            <td>
+              <code>Draft</code>, <code>Active</code>, <code>Paused</code>,
+              <code>Completed</code>.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <hr />
+      <h4><strong>Table: Ad</strong></h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Field</th>
+            <th>Type</th>
+            <th>Constraints</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>AdId</td>
+            <td>Integer</td>
+            <td>PK</td>
+            <td>Unique identifier for ads.</td>
+          </tr>
+          <tr>
+            <td>CampaignId</td>
+            <td>Integer</td>
+            <td>FK (Campaign)</td>
+            <td>Links to the parent campaign.</td>
+          </tr>
+          <tr>
+            <td>Title</td>
+            <td>Varchar(100)</td>
+            <td>Not Null</td>
+            <td>Ad title.</td>
+          </tr>
+          <tr>
+            <td>Type</td>
+            <td>Enum</td>
+            <td>Not Null</td>
+            <td>
+              <code>Banner</code>, <code>Video</code>, <code>Popup</code>,
+              <code>Interactive</code>.
+            </td>
+          </tr>
+          <tr>
+            <td>ContentURL</td>
+            <td>Varchar(255)</td>
+            <td>Not Null</td>
+            <td>Path to ad media (image/video).</td>
+          </tr>
+          <tr>
+            <td>TemplateId</td>
+            <td>Integer</td>
+            <td>FK (Template)</td>
+            <td>Pre-built template reference (if used).</td>
+          </tr>
+          <tr>
+            <td>ClickURL</td>
+            <td>Varchar(255)</td>
+            <td>Not Null</td>
+            <td>Redirect URL on ad click.</td>
+          </tr>
+        </tbody>
+      </table>
+      <hr />
+      <h4><strong>Table: Template</strong></h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Field</th>
+            <th>Type</th>
+            <th>Constraints</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>TemplateId</td>
+            <td>Integer</td>
+            <td>PK</td>
+            <td>Unique identifier for ad templates.</td>
+          </tr>
+          <tr>
+            <td>Name</td>
+            <td>Varchar(50)</td>
+            <td>Not Null</td>
+            <td>Template name (e.g., "Summer Sale Banner").</td>
+          </tr>
+          <tr>
+            <td>Category</td>
+            <td>Enum</td>
+            <td>Not Null</td>
+            <td>
+              <code>Banner</code>, <code>Video</code>,
+              <code>Social Media Post</code>.
+            </td>
+          </tr>
+          <tr>
+            <td>PreviewURL</td>
+            <td>Varchar(255)</td>
+            <td>Not Null</td>
+            <td>Thumbnail/image of the template.</td>
+          </tr>
+          <tr>
+            <td>IsActive</td>
+            <td>Boolean</td>
+            <td>Not Null</td>
+            <td>Whether the template is available for use.</td>
+          </tr>
+        </tbody>
+      </table>
+      <hr />
+      <h4><strong>Table: TargetingCriteria</strong></h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Field</th>
+            <th>Type</th>
+            <th>Constraints</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>TargetingId</td>
+            <td>Integer</td>
+            <td>PK</td>
+            <td>Unique identifier for targeting rules.</td>
+          </tr>
+          <tr>
+            <td>CampaignId</td>
+            <td>Integer</td>
+            <td>FK (Campaign)</td>
+            <td>Links to the campaign.</td>
+          </tr>
+          <tr>
+            <td>Demographics</td>
+            <td>JSON</td>
+            <td>Not Null</td>
+            <td>Age, gender, income brackets.</td>
+          </tr>
+          <tr>
+            <td>Interests</td>
+            <td>JSON</td>
+            <td>Not Null</td>
+            <td>User interests (e.g., "Sports", "Tech").</td>
+          </tr>
+          <tr>
+            <td>Location</td>
+            <td>JSON</td>
+            <td>Not Null</td>
+            <td>Geographic targeting (state/city/area).</td>
+          </tr>
+          <tr>
+            <td>Behavior</td>
+            <td>JSON</td>
+            <td>Not Null</td>
+            <td>Browsing/purchase history.</td>
+          </tr>
+        </tbody>
+      </table>
+      <hr />
+      <h4><strong>Table: Analytics</strong></h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Field</th>
+            <th>Type</th>
+            <th>Constraints</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>AnalyticsId</td>
+            <td>Integer</td>
+            <td>PK</td>
+            <td>Unique identifier for analytics.</td>
+          </tr>
+          <tr>
+            <td>AdId</td>
+            <td>Integer</td>
+            <td>FK (Ad)</td>
+            <td>Links to the tracked ad.</td>
+          </tr>
+          <tr>
+            <td>Impressions</td>
+            <td>Integer</td>
+            <td>Not Null</td>
+            <td>Number of views.</td>
+          </tr>
+          <tr>
+            <td>Clicks</td>
+            <td>Integer</td>
+            <td>Not Null</td>
+            <td>Number of clicks.</td>
+          </tr>
+          <tr>
+            <td>Conversions</td>
+            <td>Integer</td>
+            <td>Not Null</td>
+            <td>Number of conversions (e.g., purchases).</td>
+          </tr>
+          <tr>
+            <td>Date</td>
+            <td>Date</td>
+            <td>Not Null</td>
+            <td>Date of data collection.</td>
+          </tr>
+        </tbody>
+      </table>
+      <hr />
+      <h4><strong>Table: Budget</strong></h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Field</th>
+            <th>Type</th>
+            <th>Constraints</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>BudgetId</td>
+            <td>Integer</td>
+            <td>PK</td>
+            <td>Unique identifier for budget settings.</td>
+          </tr>
+          <tr>
+            <td>CampaignId</td>
+            <td>Integer</td>
+            <td>FK (Campaign)</td>
+            <td>Links to the campaign.</td>
+          </tr>
+          <tr>
+            <td>DailyLimit</td>
+            <td>Decimal</td>
+            <td>Not Null</td>
+            <td>Maximum daily spend.</td>
+          </tr>
+          <tr>
+            <td>TotalSpent</td>
+            <td>Decimal</td>
+            <td>Not Null</td>
+            <td>Cumulative campaign spend.</td>
+          </tr>
+          <tr>
+            <td>BiddingStrategy</td>
+            <td>Enum</td>
+            <td>Not Null</td>
+            <td><code>CPC</code>, <code>CPM</code>, <code>CPA</code>.</td>
+          </tr>
+        </tbody>
+      </table>
+      <hr />
+      <h4><strong>Table: DistributionChannel</strong></h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Field</th>
+            <th>Type</th>
+            <th>Constraints</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>ChannelId</td>
+            <td>Integer</td>
+            <td>PK</td>
+            <td>Unique identifier for channels.</td>
+          </tr>
+          <tr>
+            <td>CampaignId</td>
+            <td>Integer</td>
+            <td>FK (Campaign)</td>
+            <td>Links to the campaign.</td>
+          </tr>
+          <tr>
+            <td>Platform</td>
+            <td>Enum</td>
+            <td>Not Null</td>
+            <td>
+              <code>Google Ads</code>, <code>Facebook</code>,
+              <code>Instagram</code>, <code>LinkedIn</code>.
+            </td>
+          </tr>
+          <tr>
+            <td>Status</td>
+            <td>Enum</td>
+            <td>Not Null</td>
+            <td><code>Active</code>, <code>Paused</code>.</td>
+          </tr>
+        </tbody>
+      </table>
+      <hr />
+      <h4><strong>Table: Retargeting</strong></h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Field</th>
+            <th>Type</th>
+            <th>Constraints</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>RetargetingId</td>
+            <td>Integer</td>
+            <td>PK</td>
+            <td>Unique identifier for retargeting.</td>
+          </tr>
+          <tr>
+            <td>UserId</td>
+            <td>Integer</td>
+            <td>FK (User)</td>
+            <td>Links to the viewer.</td>
+          </tr>
+          <tr>
+            <td>AdId</td>
+            <td>Integer</td>
+            <td>FK (Ad)</td>
+            <td>Links to the ad the user interacted with.</td>
+          </tr>
+          <tr>
+            <td>InteractionType</td>
+            <td>Enum</td>
+            <td>Not Null</td>
+            <td>
+              <code>Click</code>, <code>View</code>, <code>Conversion</code>.
+            </td>
+          </tr>
+          <tr>
+            <td>CookieId</td>
+            <td>Varchar(255)</td>
+            <td>Not Null</td>
+            <td>Identifier for tracking users.</td>
+          </tr>
+        </tbody>
+      </table>
+      <hr />
+   
+    </div>
+    <script>
+      document
+        .getElementById("downloadExcel")
+        .addEventListener("click", function () {
+          var table2excel = new Table2Excel();
+          table2excel.export(document.querySelectorAll("#exampleTable"));
+        });
+    </script>
+  </body>
+</html>
